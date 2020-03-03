@@ -1,0 +1,6 @@
+/* .babelrc */
+{
+  "plugins": [
+    "@babel/plugin-transform-arrow-functions"
+  ]
+}

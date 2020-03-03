@@ -1,0 +1,7 @@
+﻿@babel/cli // 译为babel脚手架;
+
+@babel/core // 译为babel核心;
+
+如果使用babel以上两个是必须要安装使用的;
+
+@babelplugin-transform-arrow-functions // 译为babel插件 转换 箭头 函数;

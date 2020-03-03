@@ -1,0 +1,66 @@
+﻿1: cnpm i
+
+2: babel index.js
+
+如果仅是在终端输出转换结果，直接在控制台输入babel index.js回车执行即可。
+
+如果是输出到文件，直接在控制台输入babel index.js -o xxx.js
+
+或者babel index.js --watch --out-file index1.js即可;
+
+--out-file 简写为 -o
+
+如果相对某个文件夹下所有的js文件进行babel转换，babel 目标文件夹 -d 指定的文件夹，
+
+如果指定的文件夹不存在，那么-d 后面可以新建一个，
+
+待执行完该命令会生成一个新的文件夹，转换后的js会在该新文件夹中
+
+babel src -d dest;
+
+
+问题是有那么多的语法需要转换，一个个的添加插件也太麻烦了,
+
+比如下述这样，对箭头函数转换要下载一个转换箭头函数的插件，
+
+对赋值结构的要下载一个对赋值结构转换的插件，以此下去不仅下载很多，
+
+而且在.babelrc文件中还要添加配置一堆，一个个的添加插件也太麻烦了。
+
+幸好babel提供了presets，他可以理解为插件的集合，省去了我们一个个引入插件的麻烦，
+
+官方提供了很多presets，比如preset-env（处理es6+规范语法的插件集合）、preset-stage
+
+（处理尚处在提案语法的插件集合）、preset-react（处理react语法的插件集合）等，
+
+这里我们主要介绍下preset-env：
+
+未使用babel提供的presets之前要这样一个个添加
+{
+  "plugins": [
+    "@babel/plugin-transform-arrow-functions",
+    "@babel/plugin-transform-destructuring"
+  ]    
+}
+使用babel提供了presets之后
+
+{
+  "presets": ["@babel/preset-env"]    
+}
+除此之外babel还提供了一个targets配置项指定运行环境，
+
+指定什么版本浏览器不支持的语法才会被转换，比如IE8
+
+或者IE8以上的浏览器才会进行转换。
+
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "browsers": [ "ie >= 8", "chrome >= 62" ]
+      }
+    }]
+  ]    
+}
+
+详情请阅读“babel环境预设.txt”

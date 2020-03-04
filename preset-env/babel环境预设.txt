@@ -1,5 +1,9 @@
 ﻿@babel/preset-env  // 译为babel插件 预设 环境;
 
+targets 指定运行环境
+targets.node 指定node版本
+targets.browsers 指定浏览器版本
+
 babel-preset-env是非常重要且常用的一个插件预设，掌握它的用法以及实现原理非常有必要。
 
 最初，为了让开发者能够尽早用上新的JS特性，babel团队开发了babel-preset-latest。
@@ -61,6 +65,18 @@ babel 就会替我们根据当前你所配置的目标浏览器(browserslist)来
 
 像这样， 我们在 index.js 文件中加入试一下core-js
 
+entry": 在入口文件中加入所有的内置类型
+如果在.babelrc中指定useBuiltIns: 'entry', 则应该在项目代码的顶部引入babel-polyfill
+
+import "@babel/polyfill"
+表示全量引入。
+
+"usage": 只在当前文件中加入该文件用到的内置类型的polyfill。
+设置为usage 不需要在顶部引入polyfill
+
+"false": 不自动加入内置类型的polyfill。
+
+
 // index.js
 import "core-js";
 
@@ -74,3 +90,12 @@ console.log(arr)
 上述这样显然不太好，所以建议使用usage方式
 
 false 是默认值，使用这个值时不引入 polyfill
+
+preset-env.modules文档说明如下
+
+"amd" | "umd" | "systemjs" | "commonjs" | "cjs" | "auto" | false, defaults to "auto"
+指定将es6 modules 转换为何种模块规范。
+
+一般在webpack 项目中，我们会将此参数设置为false,既将module交由webpack处理，而不是babel。
+
+如果设置为false, 将不转换。这在node项目中如mocha测试中将不会转换import/export，可能会出错

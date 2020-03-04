@@ -1,20 +1,28 @@
 /* .babelrc */
 {
   "presets": [
-    ["@babel/preset-env", {
-      "modules": false,
-      "useBuiltIns": "usage", // useBuiltIns 提供 false, entry, usage 三种方式
-      "corejs": 3,
-      "targets": {
-        "browsers": [ "ie >= 8", "chrome >= 62" ]
+    [
+      "@babel/preset-env",
+      {
+        "modules": false, // modules 指定何种形式的模块，设置为false表示不转码模块
+        "useBuiltIns": "usage", // 译为置入方式; useBuiltIns 提供 false, entry, usage 三种方式
+        "corejs": 3,
+        "targets": {
+          "node": "true", // "true" || "current"兼容当前node版本代码
+          "browsers": [
+            "ie >= 8",
+            "chrome >= 62"
+          ]
+        }
       }
-    }]
+    ]
   ],
   "plugins": [
-    [ 
-      "@babel/plugin-transform-runtime", {
+    [
+      "@babel/plugin-transform-runtime",
+      {
         "corejs": 3
       }
     ]
-  ]    
+  ]
 }

@@ -1,0 +1,9 @@
+﻿如何引入babel配置文件？
+
+在当前目录下创建一个.babelrc文件 or babelrl.json文件 or babel.config.json(默认的就是json数据类型)文件即可。
+
+在执行babel命令时会到node_modules/.bin路径和环境变量$PATH里面，检查命令是否存在babel文件，
+
+如果找不到就需要手动引入babel配置文件,例如babel-01中的webpack打包中手动引入babel配置文件。
+
+

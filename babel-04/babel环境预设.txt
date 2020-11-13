@@ -1,0 +1,13 @@
+﻿@babel/preset-env  // 译为babel插件 预设 环境;
+
+targets 指定运行环境
+targets.node 指定node版本
+targets.browsers 指定浏览器版本
+
+我们发现把babel配置文件里的@babel/plugin-transform-runtime注释掉,
+Babel预设仅能解决JavaScript新特性的语法，但是对于新增的API仅通过Babel环境预设则不能。
+
+在浏览器控制台报“bundle.js:1 Uncaught ReferenceError: regeneratorRuntime is not defined”
+
+
+

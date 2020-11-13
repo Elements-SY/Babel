@@ -1,4 +1,0 @@
-﻿@babel/plugin-transform-destructuring // 译为babel插件 转换 赋值结构;
-
-上述插件是对es6赋值结构进行转换成es5写法的插件
-

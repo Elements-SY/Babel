@@ -1,0 +1,15 @@
+﻿下载安装插件命令如下：
+npm i 
+or 
+cnpm i
+
+执行编译文件命令如下：
+babel index.js -o compiled.js -w 
+or 
+npm run build:webpack
+or
+npm run build:rollup 
+or 
+npx babel index.js -o compiled.js -w
+
+

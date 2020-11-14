@@ -1,0 +1,15 @@
+﻿下载安装插件命令如下：
+npm i 
+or 
+cnpm i
+
+执行编译文件命令如下：
+babel index.js -o compiled.js -w (执行当前命令前提是全局安装了@babel/cli @babel/core)
+or 
+npm run build:webpack
+or
+npm run build:rollup 
+or 
+npx babel index.js -o compiled.js -w
+
+
